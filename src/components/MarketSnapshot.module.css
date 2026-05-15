@@ -1,0 +1,214 @@
+/* components/MarketSnapshot.module.css */
+
+.wrapper {
+  background: var(--navy-alt);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--white);
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+}
+
+.updated {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.headerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  background: rgba(0,194,124,0.15);
+  border: 1px solid rgba(0,194,124,0.3);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--green);
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+
+.headerBadge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Stat Card */
+.statCard {
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: background var(--transition);
+}
+
+.statCard:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0.5rem;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.statYoy {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* YoY color variants */
+.yoy_green   { color: var(--green); }
+.yoy_red     { color: #f87171; }
+.yoy_neutral { color: rgba(255,255,255,0.45); }
+
+.statNote {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.35);
+  margin-top: 0.3rem;
+}
+
+/* Market Interpretation */
+.interpretation {
+  background: rgba(200,135,58,0.08);
+  border-left: 3px solid var(--amber);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.55;
+}
+
+.interpretation p { margin: 0; }
+
+.interpretation strong {
+  color: var(--amber-light);
+}
+
+/* Source */
+.source {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.3);
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  line-height: 1.5;
+}
+
+/* Loading State */
+.loadingBar {
+  height: 1.25rem;
+  width: 60%;
+  background: rgba(255,255,255,0.08);
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  animation: shimmer 1.5s infinite;
+}
+
+.loadingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.loadingCard {
+  height: 90px;
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-md);
+  animation: shimmer 1.5s infinite;
+}
+
+.loadingCard:nth-child(2) { animation-delay: 0.1s; }
+.loadingCard:nth-child(3) { animation-delay: 0.2s; }
+.loadingCard:nth-child(4) { animation-delay: 0.3s; }
+.loadingCard:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+
+/* No Data */
+.noData {
+  text-align: center;
+  padding: 2rem;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+}
+
+.noData p { margin: 0; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statValue {
+    font-size: 1.25rem;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
