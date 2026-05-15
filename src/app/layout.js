@@ -28,6 +28,9 @@ export const metadata = {
   alternates: {
     canonical: '/',
   },
+  verification: {
+    google: 'Q4DSILfW14UkWwsPXSvAshC1QKcNlYntjxi3-NTlmTo',
+  },
 }
 
 export default function RootLayout({ children }) {
