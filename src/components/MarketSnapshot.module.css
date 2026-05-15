@@ -1,11 +1,11 @@
 /* components/MarketSnapshot.module.css */
 
 .wrapper {
-  background: var(--navy-alt);
-  border-radius: var(--radius-lg);
+  background: #1B2B4B;
+  border-radius: 10px;
   padding: 1.75rem;
   border: 1px solid rgba(255,255,255,0.08);
-  color: var(--white);
+  color: #ffffff;
 }
 
 /* Header */
@@ -26,7 +26,7 @@
 .title {
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--white);
+  color: #ffffff;
   margin: 0;
 }
 
@@ -45,7 +45,7 @@
   border-radius: 100px;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--green);
+  color: #00C27C;
   white-space: nowrap;
   letter-spacing: 0.03em;
 }
@@ -55,7 +55,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--green);
+  background: #00C27C;
   animation: pulse 2s infinite;
 }
 
@@ -75,10 +75,10 @@
 /* Stat Card */
 .statCard {
   background: rgba(255,255,255,0.05);
-  border-radius: var(--radius-md);
+  border-radius: 6px;
   padding: 1rem 1.1rem;
   border: 1px solid rgba(255,255,255,0.07);
-  transition: background var(--transition);
+  transition: background 0.2s;
 }
 
 .statCard:hover {
@@ -97,7 +97,7 @@
 .statValue {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--white);
+  color: #ffffff;
   line-height: 1;
   margin-bottom: 0.4rem;
 }
@@ -111,7 +111,7 @@
 }
 
 /* YoY color variants */
-.yoy_green   { color: var(--green); }
+.yoy_green   { color: #00C27C; }
 .yoy_red     { color: #f87171; }
 .yoy_neutral { color: rgba(255,255,255,0.45); }
 
@@ -123,9 +123,9 @@
 
 /* Market Interpretation */
 .interpretation {
-  background: rgba(200,135,58,0.08);
-  border-left: 3px solid var(--amber);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: rgba(31,93,108,0.2);
+  border-left: 3px solid #1F5D6C;
+  border-radius: 0 6px 6px 0;
   padding: 0.9rem 1.1rem;
   margin-bottom: 1rem;
   font-size: 0.9rem;
@@ -136,7 +136,7 @@
 .interpretation p { margin: 0; }
 
 .interpretation strong {
-  color: var(--amber-light);
+  color: #2d7a8c;
 }
 
 /* Source */
@@ -167,7 +167,7 @@
 .loadingCard {
   height: 90px;
   background: rgba(255,255,255,0.05);
-  border-radius: var(--radius-md);
+  border-radius: 6px;
   animation: shimmer 1.5s infinite;
 }
 
