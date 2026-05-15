@@ -31,7 +31,7 @@ async function submitLead(formData, placement, slug) {
     email:       formData.email || null,
     address:     formData.address || null,
     situation:   formData.situation || null,
-    source:      'virginiahomeoptions.com',
+    source:      'woodbridgehomeoptions.com',
     source_page: slug,
     placement,
     referrer:    typeof document !== 'undefined' ? document.referrer || null : null,
@@ -54,6 +54,7 @@ const SITUATIONS = [
   'Downsizing',
   'Vacant or abandoned property',
   'Code violations / liens',
+  'PCS / military move',
   'Other',
 ];
 
@@ -125,7 +126,7 @@ function FullForm({ placement, slug }) {
         <div><label style={lbl}>Your Name *</label><input type="text" name="name" value={form.name} onChange={handleChange} required placeholder="First and last name" style={inp} /></div>
         <div><label style={lbl}>Best Phone *</label><input type="tel" name="phone" value={form.phone} onChange={handleChange} required placeholder="(703) 555-0100" style={inp} /></div>
       </div>
-      <div style={{ marginBottom: 16 }}><label style={lbl}>Property Address *</label><input type="text" name="address" value={form.address} onChange={handleChange} required placeholder="123 Main St, Manassas, VA" style={inp} /></div>
+      <div style={{ marginBottom: 16 }}><label style={lbl}>Property Address *</label><input type="text" name="address" value={form.address} onChange={handleChange} required placeholder="123 Main St, Woodbridge, VA" style={inp} /></div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 20 }}>
         <div><label style={lbl}>Email (optional)</label><input type="email" name="email" value={form.email} onChange={handleChange} placeholder="you@example.com" style={inp} /></div>
         <div><label style={lbl}>Your Situation</label><select name="situation" value={form.situation} onChange={handleChange} style={inp}><option value="">Select...</option>{SITUATIONS.map(s => <option key={s} value={s}>{s}</option>)}</select></div>
@@ -142,13 +143,13 @@ function FullForm({ placement, slug }) {
 export default function ContentPage({ config, stats, lastCronRun }) {
   const [openFaq, setOpenFaq] = useState(null);
   const { slug, city, county, type = 'city', h1, heroSub, trustItems, bodyContent, faqs = [] } = config;
-  const trust = trustItems || ['20+ years fixing & flipping in NoVA', 'Licensed VA real estate agent', 'Pearson Smith Realty', 'Any situation — no judgment'];
+  const trust = trustItems || ['20+ years fixing & flipping in Prince William County', 'Licensed VA real estate agent', 'Pearson Smith Realty', 'Any situation — no judgment'];
 
   const schema = {
     '@context': 'https://schema.org',
     '@type': type === 'blog' ? 'Article' : 'WebPage',
     name: config.metaTitle, description: config.metaDesc,
-    url: `https://virginiahomeoptions.com/${slug}`,
+    url: `https://www.woodbridgehomeoptions.com/${slug}`,
     datePublished: '2026-01-15T00:00:00Z',
     dateModified: lastCronRun || new Date().toISOString(),
     publisher: { '@type': 'RealEstateAgent', name: 'Dan White', telephone: '+15719893269', memberOf: { '@type': 'Organization', name: 'Pearson Smith Realty' } },
@@ -160,7 +161,7 @@ export default function ContentPage({ config, stats, lastCronRun }) {
 
   const options = [
     { icon: '💵', title: 'Off-Market Cash Sale', tag: 'Fastest close', tagColor: '#00C27C', desc: 'Close in as few as 7 days. No showings, no repairs, no contingencies. I put your home in front of thousands of investors simultaneously — they compete, you get a real number, not a single lowball.' },
-    { icon: '🏠', title: 'As-Is MLS Listing', tag: 'Often highest price', tagColor: '#1B2B4B', desc: 'List on the open market as-is — no repairs, no staging. In competitive NoVA markets, as-is listings attract multiple offers. Often produces more than a single cash offer.' },
+    { icon: '🏠', title: 'As-Is MLS Listing', tag: 'Often highest price', tagColor: '#1B2B4B', desc: 'List on the open market as-is — no repairs, no staging. In competitive Prince William County markets, as-is listings attract multiple offers. Often produces more than a single cash offer.' },
     { icon: '🔨', title: 'Wholetail Sale', tag: 'Best of both worlds', tagColor: '#1F5D6C', desc: 'Light cleanup, priced right, sold fast — without a full renovation. Faster than traditional, higher than a deep-discount cash offer.' },
     { icon: '📋', title: 'Seller Financing', tag: 'Monthly income stream', tagColor: '#5a5a5a', desc: 'Own your home free and clear? Carry the note and collect monthly payments instead of a lump sum. Often achieves a higher total price over time.' },
     { icon: '🔑', title: 'Lease Option', tag: 'Keep your options open', tagColor: '#5a5a5a', desc: 'Rent now, sell later. Lock in a future sale price today while collecting rent in the meantime.' },
@@ -217,7 +218,7 @@ export default function ContentPage({ config, stats, lastCronRun }) {
       <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100, background: 'rgba(27,43,75,0.97)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(31,93,108,0.2)' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72, maxWidth: 1160, margin: '0 auto', padding: '0 24px' }}>
           <a href="/" style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', letterSpacing: '-0.01em', textDecoration: 'none' }}>
-            Virginia<span style={{ color: '#1F5D6C' }}>Home</span>Options
+            Woodbridge<span style={{ color: '#1F5D6C' }}>Home</span>Options
           </a>
           <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
             <a href="tel:+15719893269" className="cp-nav-phone" style={{ fontFamily: 'var(--font-dm-mono), monospace', fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', transition: 'color 0.2s' }}>(571) 989-3269</a>
@@ -228,7 +229,7 @@ export default function ContentPage({ config, stats, lastCronRun }) {
 
       {/* HERO */}
       <section className="cp-hero-section" style={{ background: '#1B2B4B', color: '#ffffff', padding: '140px 0 80px', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse 80% 60% at 70% 50%, rgba(200,135,58,0.07) 0%, transparent 60%)' }} />
+        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse 80% 60% at 70% 50%, rgba(31,93,108,0.12) 0%, transparent 60%)' }} />
         <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 1 }}>
           <div style={{ maxWidth: 700 }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'rgba(31,93,108,0.12)', border: '1px solid rgba(31,93,108,0.25)', color: '#2d7a8c', fontFamily: 'var(--font-dm-mono), monospace', fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase', padding: '8px 16px', borderRadius: 100, marginBottom: 28 }}>
@@ -239,7 +240,6 @@ export default function ContentPage({ config, stats, lastCronRun }) {
             <p style={{ fontFamily: 'var(--font-source-serif), Georgia, serif', fontSize: '1.1rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, marginBottom: 36, maxWidth: 540 }}>{heroSub}</p>
             <div style={{ marginBottom: 32 }}>
               <a href="tel:+15719893269" className="cp-hero-phone" style={{ fontFamily: 'var(--font-dm-mono), monospace', fontSize: '1.8rem', fontWeight: 500, color: '#ffffff', textDecoration: 'none', display: 'block', marginBottom: 6, letterSpacing: '-0.01em' }}>(571) 989-3269</a>
-              <a href="tel:+18882355582" style={{ fontFamily: 'var(--font-dm-mono), monospace', fontSize: '0.85rem', color: '#2d7a8c', textDecoration: 'none' }}>Toll Free: 1-888-2-SELL-VA</a>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 20px', paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
               {trust.map((item, i) => (
@@ -252,16 +252,16 @@ export default function ContentPage({ config, stats, lastCronRun }) {
         </div>
       </section>
 
-      {/* AMBER STRIP */}
+      {/* TEAL STRIP */}
       <div style={{ background: '#1F5D6C', padding: '18px 0' }}>
         <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 40, flexWrap: 'wrap' }}>
-          {['5 Options — Not Just One Cash Offer', 'Licensed VA Agent · 20+ Years in NoVA', 'As-Is — No Repairs, No Cleanout', 'Free Consultation · No Pressure'].map((item, i) => (
+          {['5 Options — Not Just One Cash Offer', 'Licensed VA Agent · 20+ Years in Prince William County', 'As-Is — No Repairs, No Cleanout', 'Free Consultation · No Pressure'].map((item, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#ffffff', fontFamily: 'var(--font-source-serif), serif', fontSize: '0.9rem', fontWeight: 600 }}>✓ {item}</div>
           ))}
         </div>
       </div>
 
-      {/* FIVE OPTIONS — immediately below the fold */}
+      {/* FIVE OPTIONS */}
       <div style={{ background: '#F7F5F2', padding: '64px 0 0' }}>
         <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ textAlign: 'center', marginBottom: 36 }}>
@@ -270,7 +270,7 @@ export default function ContentPage({ config, stats, lastCronRun }) {
               Five Paths Forward — <em style={{ fontStyle: 'italic', color: '#1F5D6C' }}>I Know Every One of Them</em>
             </h2>
             <p style={{ fontFamily: 'var(--font-source-serif), Georgia, serif', fontSize: '1.05rem', color: '#5a5a5a', maxWidth: 620, margin: '0 auto', lineHeight: 1.8 }}>
-              Most &ldquo;we buy houses&rdquo; companies can offer you one thing — a cash offer, almost certainly below market. As a licensed Virginia agent with 20 years of experience, I walk you through every option and tell you honestly which one serves you best.
+              Most &ldquo;we buy houses&rdquo; companies can offer you one thing — a cash offer, almost certainly below market. As a licensed Virginia agent with 20 years of experience in Prince William County, I walk you through every option and tell you honestly which one serves you best.
             </p>
           </div>
 
@@ -302,7 +302,7 @@ export default function ContentPage({ config, stats, lastCronRun }) {
         </div>
       </div>
 
-      {/* SITUATIONS — dark section below options */}
+      {/* SITUATIONS */}
       <div style={{ background: '#1B2B4B', padding: '56px 0' }}>
         <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ textAlign: 'center', marginBottom: 36 }}>
@@ -341,8 +341,8 @@ export default function ContentPage({ config, stats, lastCronRun }) {
                 </div>
               )}
 
-              {/* Market Snapshot */}
-              {(type === 'city' || type === 'county' || type === 'archive') && (
+              {/* Market Snapshot — city and county pages only, not blogs */}
+              {(type === 'city' || type === 'county') && (
                 <div style={{ marginBottom: 56 }}>
                   <div style={{ fontFamily: 'var(--font-dm-mono), monospace', fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#1F5D6C', marginBottom: 10 }}>Live market data</div>
                   <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700, color: '#1B2B4B', letterSpacing: '-0.02em', marginBottom: 24 }}>
@@ -394,8 +394,8 @@ export default function ContentPage({ config, stats, lastCronRun }) {
                 <div className="cp-reviews-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
                   {[
                     { text: 'Dan explained every option clearly. We did a wholetail and netted $40K more than the cash offer we got elsewhere.', author: 'M.T., Woodbridge' },
-                    { text: "Inherited my dad's house and had no idea what to do. Dan walked me through everything with zero pressure. Closed in 3 weeks.", author: 'K.R., Manassas' },
-                    { text: 'Facing foreclosure and thought I had no options. Dan helped me sell fast and kept my credit intact.', author: 'J.P., Dale City' },
+                    { text: "Inherited my dad's house in Dale City and had no idea what to do. Dan walked me through everything with zero pressure. Closed in 3 weeks.", author: 'K.R., Manassas' },
+                    { text: 'Facing foreclosure and thought I had no options. Dan helped me sell fast and kept my credit intact. Called on a Tuesday, closed in 18 days.', author: 'J.P., Dale City' },
                   ].map((r, i) => (
                     <div key={i} style={{ background: '#ffffff', borderRadius: 10, padding: '28px 24px', border: '1px solid #e2ddd8' }}>
                       <div style={{ color: '#1F5D6C', fontSize: '1rem', marginBottom: 10 }}>★★★★★</div>
@@ -404,7 +404,7 @@ export default function ContentPage({ config, stats, lastCronRun }) {
                     </div>
                   ))}
                 </div>
-                <p style={{ fontFamily: 'var(--font-source-serif), serif', fontStyle: 'italic', fontSize: '0.8rem', color: '#8a8a8a', marginTop: 12 }}>Based on 13 Google reviews · Dan White, Pearson Smith Realty</p>
+                <p style={{ fontFamily: 'var(--font-source-serif), serif', fontStyle: 'italic', fontSize: '0.8rem', color: '#8a8a8a', marginTop: 12 }}>Based on Google reviews · Dan White, Pearson Smith Realty</p>
               </div>
 
               {/* FAQ */}
@@ -432,7 +432,7 @@ export default function ContentPage({ config, stats, lastCronRun }) {
                 <div style={{ fontFamily: 'var(--font-dm-mono), monospace', fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#1F5D6C', marginBottom: 10 }}>Free consultation</div>
                 <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: '1.8rem', fontWeight: 700, color: '#1B2B4B', letterSpacing: '-0.02em', marginBottom: 10 }}>Tell Me What You&apos;re Dealing With</h2>
                 <p style={{ fontFamily: 'var(--font-source-serif), serif', fontSize: '1rem', color: '#5a5a5a', lineHeight: 1.7, marginBottom: 28 }}>
-                  No judgment. No obligation. No pressure. Just an honest conversation with someone who has been through it all — and knows {city || county || 'Northern Virginia'} inside and out.
+                  No judgment. No obligation. No pressure. Just an honest conversation with someone who has been through it all — and knows {city || county || 'Prince William County'} inside and out.
                 </p>
                 <FullForm placement="bottom_form" slug={slug} />
               </div>
@@ -446,7 +446,7 @@ export default function ContentPage({ config, stats, lastCronRun }) {
                   <div style={{ width: 52, height: 52, borderRadius: '50%', background: '#1B2B4B', border: '2px solid #1F5D6C', color: '#ffffff', fontSize: '0.9rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontFamily: 'var(--font-playfair), serif' }}>DW</div>
                   <div>
                     <div style={{ fontFamily: 'var(--font-playfair), serif', fontWeight: 700, fontSize: '1rem', color: '#1B2B4B' }}>Dan White</div>
-                    <div style={{ fontFamily: 'var(--font-dm-mono), monospace', fontSize: '0.7rem', color: '#8a8a8a', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Licensed VA Agent · 20+ Years NoVA</div>
+                    <div style={{ fontFamily: 'var(--font-dm-mono), monospace', fontSize: '0.7rem', color: '#8a8a8a', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Licensed VA Agent · 20+ Years Prince William County</div>
                   </div>
                 </div>
                 <p style={{ fontFamily: 'var(--font-source-serif), serif', fontStyle: 'italic', fontSize: '0.875rem', color: '#5a5a5a', lineHeight: 1.65, marginBottom: 16 }}>
@@ -454,7 +454,6 @@ export default function ContentPage({ config, stats, lastCronRun }) {
                 </p>
                 <div style={{ marginBottom: 20 }}>
                   <a href="tel:+15719893269" style={{ fontFamily: 'var(--font-dm-mono), monospace', fontSize: '1.3rem', fontWeight: 500, color: '#1B2B4B', textDecoration: 'none', display: 'block', marginBottom: 4, letterSpacing: '-0.01em' }}>(571) 989-3269</a>
-                  <a href="tel:+18882355582" style={{ fontFamily: 'var(--font-dm-mono), monospace', fontSize: '0.8rem', color: '#1F5D6C', textDecoration: 'none' }}>1-888-2-SELL-VA</a>
                 </div>
                 <div style={{ height: 1, background: '#e2ddd8', margin: '0 0 16px' }} />
                 <div style={{ fontFamily: 'var(--font-dm-mono), monospace', fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#8a8a8a', marginBottom: 14 }}>Free options review — no pressure</div>
@@ -463,7 +462,7 @@ export default function ContentPage({ config, stats, lastCronRun }) {
 
               <div style={{ marginTop: 16, background: '#ffffff', borderRadius: 12, padding: '20px 24px', border: '1px solid #e2ddd8' }}>
                 <div style={{ fontFamily: 'var(--font-dm-mono), monospace', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#8a8a8a', marginBottom: 14 }}>Why Dan White</div>
-                {['20+ years fixing & flipping in NoVA', 'Licensed VA agent — Pearson Smith Realty', 'No seller commission on cash sales', 'Any condition — no repairs, no cleanout', 'Close in 7 days or 90 — your timeline', 'No judgment. No pressure. Ever.'].map((item, i) => (
+                {['20+ years fixing & flipping in Prince William County', 'Licensed VA agent — Pearson Smith Realty', 'No seller commission on cash sales', 'Any condition — no repairs, no cleanout', 'Close in 7 days or 90 — your timeline', 'No judgment. No pressure. Ever.'].map((item, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, marginBottom: 10 }}>
                     <span style={{ color: '#00C27C', fontWeight: 700, flexShrink: 0, marginTop: 1 }}>✓</span>
                     <span style={{ fontFamily: 'var(--font-source-serif), serif', fontSize: '0.85rem', color: '#5a5a5a', lineHeight: 1.5 }}>{item}</span>
@@ -481,13 +480,24 @@ export default function ContentPage({ config, stats, lastCronRun }) {
         <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 24px' }}>
           <div className="cp-footer-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: 48, marginBottom: 40 }}>
             <div>
-              <div style={{ fontFamily: 'var(--font-playfair), serif', fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: 12 }}>Virginia<span style={{ color: '#1F5D6C' }}>Home</span>Options</div>
-              <p style={{ fontFamily: 'var(--font-source-serif), serif', fontSize: '0.9rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7, marginBottom: 16 }}>A licensed Virginia real estate agent helping homeowners through every situation — foreclosure, divorce, inherited property, fire damage, and everything in between. Five options. Honest advice. No pressure.</p>
+              <div style={{ fontFamily: 'var(--font-playfair), serif', fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', marginBottom: 12 }}>Woodbridge<span style={{ color: '#1F5D6C' }}>Home</span>Options</div>
+              <p style={{ fontFamily: 'var(--font-source-serif), serif', fontSize: '0.9rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7, marginBottom: 16 }}>A licensed Virginia real estate agent helping Prince William County homeowners through every situation — foreclosure, divorce, inherited property, fire damage, and everything in between. Five options. Honest advice. No pressure.</p>
               <p style={{ fontFamily: 'var(--font-source-serif), serif', fontStyle: 'italic', fontSize: '0.78rem', color: 'rgba(255,255,255,0.25)', lineHeight: 1.6 }}>Licensed Real Estate Agent · Pearson Smith Realty · Virginia. Equal Housing Opportunity.</p>
             </div>
             {[
-              { heading: 'Quick Links', links: [{ label: 'Sell in Manassas', href: '/sell-my-house-fast-manassas-va' }, { label: 'Sell in Woodbridge', href: '/sell-my-house-fast-woodbridge-va' }, { label: 'Sell in Fairfax', href: '/sell-my-house-fast-fairfax-va' }, { label: 'Facing Foreclosure', href: '/sell-house-pre-foreclosure-virginia' }, { label: 'Inherited Property', href: '/selling-inherited-property-virginia' }] },
-              { heading: 'Contact', links: [{ label: '(571) 989-3269', href: 'tel:+15719893269' }, { label: '1-888-2-SELL-VA', href: 'tel:+18882355582' }, { label: 'dan@hssvirginia.com', href: 'mailto:dan@hssvirginia.com' }, { label: 'Pearson Smith Realty', href: 'https://pearsonsmithrealty.com' }] },
+              { heading: 'Quick Links', links: [
+                { label: 'Sell in Woodbridge', href: '/sell-my-house-fast-woodbridge-va' },
+                { label: 'Sell in Dale City', href: '/sell-my-house-fast-dale-city-va' },
+                { label: 'Sell in Manassas', href: '/sell-my-house-fast-manassas-va' },
+                { label: 'Facing Foreclosure', href: '/sell-house-foreclosure-woodbridge-va' },
+                { label: 'Inherited Property', href: '/sell-inherited-house-woodbridge-va' },
+                { label: 'Prince William County', href: '/sell-my-house-fast-prince-william-county-va' },
+              ]},
+              { heading: 'Contact', links: [
+                { label: '(571) 989-3269', href: 'tel:+15719893269' },
+                { label: 'dan@hssvirginia.com', href: 'mailto:dan@hssvirginia.com' },
+                { label: 'Pearson Smith Realty', href: 'https://pearsonsmithrealty.com' },
+              ]},
             ].map(col => (
               <div key={col.heading}>
                 <div style={{ fontFamily: 'var(--font-dm-mono), monospace', fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.35)', marginBottom: 16 }}>{col.heading}</div>
