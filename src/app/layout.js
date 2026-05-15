@@ -22,8 +22,12 @@ const dmMono = DM_Mono({
 })
 
 export const metadata = {
-  title: 'Woodbridge Home Options | PCS, Inherited, or Just Need to Sell Fast',
-  description: 'Selling a home in Woodbridge, Dale City, Lake Ridge, Manassas, or Manassas Park? Get honest options from a licensed Virginia agent with 20+ years in Prince William County — military PCS friendly, access to thousands of cash buyers who buy homes in any condition. Free no-pressure consultation.',
+  metadataBase: new URL('https://www.woodbridgehomeoptions.com'),
+  title: 'Sell My House Fast in Woodbridge VA | Woodbridge Home Options',
+  description: 'Think selling fast means leaving money on the table? Think again. Dan White shows Woodbridge, VA sellers every path — and which one puts the most cash in your pocket. Free consultation.',
+  alternates: {
+    canonical: '/',
+  },
 }
 
 export default function RootLayout({ children }) {
